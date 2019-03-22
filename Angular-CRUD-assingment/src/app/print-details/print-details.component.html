@@ -1,0 +1,38 @@
+<div class="container">
+
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Customer ID</th>
+        <th scope="col">Customer Code</th>
+        <th scope="col">Customer Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Customer Address</th>
+        <th scope="col">Customer Country</th>
+        <th scope="col">Customer Pin Code</th>
+        <th scope="col">Contact Number </th>
+        <th scope="col">Customer Email</th>
+        <!-- <th scope="col">Date</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of country">
+        <td>{{country.id}}</td>
+        <td>{{country.customerCode}}</td>
+        <td>{{country.customerName}}</td>
+        <td>{{country.gender}}</td>
+        <td>{{country.customerAddress}}</td>
+        <td>
+          <img
+            src="https://www.countryflags.io/{{(country.customerCountry|slice:(country.customerCountry.length)-2:(country.customerCountry.length))}}/shiny/64.png">
+          {{country.customerCountry | slice: 0 : (country.customerCountry.length)-2 }}</td>
+        <td>{{country.customerPinCode}}</td>
+        <td>{{country.contactNumber}}</td>
+        <td>{{country.customerEmail}}</td>
+        <!-- <td>{{country.registrationDate}}</td> -->
+      </tr>
+
+    </tbody>
+  </table>
+</div>

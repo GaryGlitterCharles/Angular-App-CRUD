@@ -1,0 +1,68 @@
+
+
+
+<div class="container">
+
+  <form [formGroup]="delete" (ngSubmit)="onSubmitA()" class="alingment">
+    <h3>Delete User Details</h3>
+    <h5><label for="customerID">Enter the Customer ID to Delete</label></h5>
+    <input type="text" pattern="[0-9]*" class="form-control" formControlName="customerID"><br>
+    <button type="submit" [disabled]="!delete.valid" class="btn btn-primary">Delete</button>
+  </form>
+
+
+
+  <div>
+    <h4 *ngIf='des'>The below Record will be Deleted</h4>
+    <table class="table" *ngIf='des'>
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Customer ID</th>
+          <th scope="col">Customer Code</th>
+          <th scope="col">Customer Name</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Customer Address</th>
+          <th scope="col">Customer Country</th>
+          <th scope="col">Customer Pin Code</th>
+          <th scope="col">Customer Email</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{des?.id}}</td>
+          <td>{{des?.customerID}}</td>
+          <td>{{des?.customerCode}}</td>
+          <td>{{des?.customerName}}</td>
+          <td>{{des?.gender}}</td>
+          <td>{{des?.customerAddress}}</td>
+          <td>{{des?.customerCountry}}</td>
+          <td>{{des?.customerPinCode}}</td>
+          <td>{{des?.customerEmail}}</td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+
+
+  <div *ngIf='des' class="deleteButton">
+
+    <br />
+    <button class="btn btn-outline-primary mr-2" (click)="open('focusFirst')">
+      <div>Delete </div>
+      <div class="text-dark" aria-hidden="true"><small>&times;Are you sure want to Delete</small></div>
+    </button>
+
+
+
+  </div>
+
+
+
+
+</div>
+

@@ -1,0 +1,13 @@
+.form-control {
+    width: 30%;
+}
+
+.alingment {
+    text-align: -webkit-center;
+}
+
+#button {
+    position: absolute;
+    top: 586px;
+}
+

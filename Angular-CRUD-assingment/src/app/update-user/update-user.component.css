@@ -1,0 +1,19 @@
+.form-control{
+    width: 30%;
+}
+.alingment{
+
+    text-align: -webkit-center;
+}
+.position{
+    position: relative;
+    top: 77px;
+}
+.table{
+    position: relative;
+    top: 35px;
+}
+#button{
+    position: relative;
+    top: 15px;
+}

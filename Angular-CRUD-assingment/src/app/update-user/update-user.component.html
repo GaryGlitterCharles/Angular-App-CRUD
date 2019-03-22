@@ -1,0 +1,133 @@
+<div class="container">
+
+
+<form [formGroup]="update" (ngSubmit)="onSubmit()" class="alingment">
+  <h3>Edit User Details</h3>
+  <h5><label for="customerID">Enter the Customer ID</label></h5>
+  <input type="text" pattern="[0-9]*" class="form-control" formControlName="customerID"><br>
+  <button type="submit" [disabled]="!update.valid" class="btn btn-primary">Get Details</button>
+</form>
+<table class="table" *ngIf='des'>
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Customer Code</th>
+      <th scope="col">Customer Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Customer Address</th>
+      <th scope="col">Customer Country</th>
+      <th scope="col">Customer Pin Code</th>
+      <th scope="col">Contact Number </th>
+      <th scope="col">Customer Email</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{des.id}}</td>
+      <td>{{des.customerCode}}</td>
+      <td>{{des.customerName}}</td>
+      <td>{{des.gender}}</td>
+      <td>{{des.customerAddress}}</td>
+      <td>{{des.customerCountry}}</td>
+      <td>{{des.customerPinCode}}</td>
+      <td>{{des.contactNumber}}</td>
+      <td>{{des.customerEmail}}</td>
+
+    </tr>
+
+  </tbody>
+</table>
+
+<div *ngIf='des' class="position">
+  <form [formGroup]="fieldsUpdate" (ngSubmit)="onSubmitUpdate()" class="alingment">
+
+
+    <input type="hidden" formControlName="customerID">
+
+    <div class="form-group">
+      <label for="customerCode">Customer Code</label>
+      <input type="text" formControlName="customerCode" class="form-control" value="{{des.customerCode}}">
+    </div>
+
+    <div>
+      <label for="customerName">Customer Name</label>
+      <input type="text" formControlName="customerName" class="form-control" value="{{des.customerName}}"
+        [ngClass]="{ 'is-invalid': submitted && f.customerName.errors }">
+
+      <div *ngIf='submitted && f.customerName.errors' class="invalid-feedback">
+        <div *ngIf='f.customerName.errors.required'>Name is required</div>
+        <div *ngIf='f.customerName.errors.pattern'>should be in lower and upper case</div>
+      </div>
+    </div>
+
+    <div class="form-check form-check-inline">
+      <label for="gen">Gender: </label>
+      <label>
+        <input type="radio" value=Male formControlName="gender">
+        <span>Male</span>
+      </label>
+      <label>
+        <input type="radio" value=Female formControlName="gender">
+        <span>Female</span>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label for="customerAddress">Customer Address</label>
+      <textarea name="" id="" cols="20" rows="5" formControlName="customerAddress" class="form-control"
+        placeholder=" Address">{{des.customerAddress}}</textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="customerCountry">Customer Country</label>
+      <select formControlName="customerCountry" class="form-control">
+        <option *ngFor='let country of countries'>{{country.name + " "+country.code}}</option>
+
+      </select>
+    </div>
+
+    <div>
+      <label for="customerPinCode">Customer Pin Code</label>
+      <input type="text" formControlName="customerPinCode" class="form-control" value="{{des.customerPinCode}}"
+        [ngClass]="{ 'is-invalid': submitted && f.customerPinCode.errors }">
+      <div *ngIf='submitted && f.customerPinCode.errors' class="invalid-feedback">
+        <div *ngIf='f.customerPinCode.errors.required'>pincode is required</div>
+        <div *ngIf='f.customerPinCode.errors.minlength'>Pincode should be greater than 6</div>
+      </div>
+    </div>
+
+    <div>
+      <label for="customerEmail">Customer Email</label>
+      <input type="email" formControlName="customerEmail" class="form-control" value="{{des.customerEmail}}"
+        [ngClass]="{ 'is-invalid': submitted && f.customerEmail.errors }">
+
+      <div *ngIf='submitted && f.customerEmail.errors' class="invalid-feedback">
+        <div *ngIf='f.customerEmail.errors.required'>Email is required</div>
+        <div *ngIf='f.customerEmail.errors.email'>Enter the correct email</div>
+      </div>
+
+    </div>
+
+    <div>
+      <label for="contactNumber">Contact Number</label>
+      <input type="text" formControlName="contactNumber" class="form-control" value="{{des.contactNumber}}">
+    </div>
+
+    <div>
+      <label for="registrationDate">Registration Date</label>
+
+      <input type="text" formControlName="registrationDate" class="form-control" value="{{today | date:'fullDate'}}">
+
+
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary" id="button">Submit</button>
+    </div>
+  </form>
+</div>
+
+</div>
+
+
+

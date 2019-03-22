@@ -1,0 +1,14 @@
+.form-control{
+    width: 30%;
+}
+.alingment{
+
+    text-align: -webkit-center;
+}
+.deleteButton{
+    position: absolute;
+    left: 72%;
+}
+.color {
+    background-image: url('/assets/images/background-gray.jpg')
+}

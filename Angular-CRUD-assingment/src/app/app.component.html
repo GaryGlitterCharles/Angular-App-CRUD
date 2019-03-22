@@ -1,0 +1,17 @@
+<div >
+
+  <nav class='navbar navbar-expand navbar-light bg-dark'>
+
+    <ul class='nav nav-pills'>
+        <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/home']">Home</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/createUser']">Create User</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/getDetails']">Show Details</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/updateDetails']">Edit</a></li>
+      <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/deleteDetails']">Delete</a></li>
+    </ul>
+  </nav>
+
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
